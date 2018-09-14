@@ -7,3 +7,10 @@ rxjs.fromEvent(document.querySelector('input'), 'input')
     rxjs.operators.map(v => v + 'asd')
   )
   .subscribe((e) => console.log(e))
+const container = document.querySelector('#container');
+
+rxjs.animationFrameScheduler((h) => {
+  console.log(container);
+  container.style.height = h + 'px';
+  this.schedule(h + 1);
+}, 0, 0);
